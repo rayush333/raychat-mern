@@ -176,3 +176,18 @@ form .MuiFab-root:hover{
     padding: 10px;
     align-items: center;
 }
+.message .MuiFab-root{
+    position:absolute;
+    background-color: white;
+    color: orange;
+    bottom:-25px;
+    height: 25px;
+    width: 30px;
+}
+.message .MuiFab-root .MuiSvgIcon-root{
+    font-size: 20px;
+}
+.message .MuiFab-root:hover{
+    background-color: orange;
+    color: white;
+}
