@@ -1,16 +1,16 @@
 import React from "react";
 import {Avatar} from "@material-ui/core";
 import Axios from "axios";
-// import {useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 function AddRoom(){
-    // let history=useHistory();
+    let history=useHistory();
     async function handleClick(){
         const name=prompt("Enter room name");
         if(name)
         {
             const res=await Axios.post("http://localhost:5000/rooms",{name: name});
             console.log(res);
-            window.location.reload();
+            history.push("/");
         }
     }
     return <div onClick={handleClick} className="list-item">
