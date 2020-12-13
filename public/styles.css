@@ -191,3 +191,8 @@ form .MuiFab-root:hover{
     background-color: orange;
     color: white;
 }
+.cr-room{
+    position: relative;
+    top: 8px;
+    font-size: 20px;
+}

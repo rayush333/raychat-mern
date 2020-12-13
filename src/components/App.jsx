@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar/Sidebar";
 import Chat from "./Chat/Chat";
 import Pusher from "pusher-js";
 import axios from "axios";
+import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 Pusher.logToConsole = true;
 function App(){
     const [chats,updatechats] = useState([]);
@@ -42,11 +43,16 @@ function App(){
       const res=await axios.get("http://localhost:5000/messages");
       updatechats(res.data);
     }
-    return <div className="app">
+    return <Router><div className="app">
        <div className="app-body">
         <Sidebar />
-        <Chat array={chats} />
+        <Switch>
+          <Route path="/:roomid">
+          <Chat array={chats} />
+          </Route>
+        </Switch>
         </div>
-    </div>;
+    </div>
+    </Router>;
 }
 export default App;
