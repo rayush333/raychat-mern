@@ -3,7 +3,7 @@ import axios from "axios";
 import {Button} from "@material-ui/core";
 import {auth,provider,fb} from "../firebase";
 import {useStateValue} from "./StateProvider";
-import { actionTypes } from "../reducer";
+import { actionTypes } from "./reducer";
 function Login(){
     const [{ user },dispatch] = useStateValue();
         function handleSubmitGoogle(event){

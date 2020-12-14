@@ -1,26 +1,37 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
 import SendIcon from '@material-ui/icons/Send';
 import {IconButton, Fab} from "@material-ui/core";
 import MicIcon from '@material-ui/icons/Mic';
 import axios from "axios";
-function ChatFooter(){
+import {useStateValue} from "../StateProvider";
+function ChatFooter(props){
+    const [{user},dispatch] = useStateValue();
     const [msg,updatemsg] = useState({
-        name: "",
+        sender_name: "",
+        sender_id: "",
         message: "",
-        time: "",
-        received: false
+        time: ""
     });
+    useEffect(()=>{
+        update();
+    },[]);
+        function update(){
+            updatemsg({
+                sender_name: user.name,
+                sender_id: user._id,
+            });
+        }
         async function handleSubmit(event){
         event.preventDefault();
         console.log(msg);
-        await axios.post("http://localhost:5000/messages",msg);
+        await axios.post("http://localhost:5000/rooms/"+props.roomid+"/messages",msg);
         updatemsg({
-            name: "",
+            sender_name: user.name,
+            sender_id: user._id,
             message: "",
-            time: "",
-            received: false
-        })
+            time: ""
+        });
     }
     function handleChange(event){
         const {name,value} = event.target;

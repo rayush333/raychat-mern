@@ -1,16 +1,22 @@
 import React from "react";
 import {Avatar} from "@material-ui/core";
 import Axios from "axios";
-import {useHistory} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
+import {useStateValue} from "../StateProvider";
+import { actionTypes } from "../reducer";
 function AddRoom(){
-    let history=useHistory();
+    const [{user}, dispatch] = useStateValue();
+    // let history=useHistory();
     async function handleClick(){
         const name=prompt("Enter room name");
         if(name)
         {
-            const res=await Axios.post("http://localhost:5000/rooms",{name: name});
-            console.log(res);
-            history.push("/");
+            const res=await Axios.post("http://localhost:5000/rooms",{name: name,user: user._id});
+            console.log(res.data);
+            dispatch({
+                type: actionTypes.SET_USER,
+                user: res.data
+            });
         }
     }
     return <div onClick={handleClick} className="list-item">

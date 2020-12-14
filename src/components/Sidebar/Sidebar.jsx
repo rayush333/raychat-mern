@@ -17,7 +17,7 @@ function Sidebar(){
     return <div className="sidebar">
         <SidebarHeader />
     <Search />
-    <List rooms={rooms} />
+    <List />
     </div>;
 }
 export default Sidebar;
