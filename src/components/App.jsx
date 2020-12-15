@@ -1,12 +1,11 @@
 import React,{useEffect,useState} from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import Chat from "./Chat/Chat";
-import Pusher from "pusher-js";
+
 import axios from "axios";
 import Login from "./Login";
 import {BrowserRouter as Router,Route,Switch} from "react-router-dom";
 import {useStateValue} from "./StateProvider";
-Pusher.logToConsole = true;
 function App(){
   const [{user},dispatch] = useStateValue();
     // const [chats,updatechats] = useState([]);

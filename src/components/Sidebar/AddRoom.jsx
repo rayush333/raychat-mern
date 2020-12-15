@@ -12,7 +12,6 @@ function AddRoom(){
         if(name)
         {
             const res=await Axios.post("http://localhost:5000/rooms",{name: name,user: user._id});
-            console.log(res.data);
             dispatch({
                 type: actionTypes.SET_USER,
                 user: res.data
