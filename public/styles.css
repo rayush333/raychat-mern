@@ -221,8 +221,17 @@ form .MuiFab-root:hover{
     text-transform: inherit !important;
     background-color: #0a8d48 !important;
     color: white;  
+    margin: 10px;
+    display: inline-block;
+}
+.fb-button{
+    background-color: blue;
 }
 .dname{
     position: relative;
     top: 8px;
+}
+a{
+    text-decoration: none !important;
+    color: inherit;
 }

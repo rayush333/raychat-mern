@@ -3,7 +3,10 @@ import {Avatar} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import axios from "axios";
 import Pusher from "pusher-js";
+// import {useStateValue} from "../StateProvider";
+// import {actionTypes} from "../reducer";
 function ListItem(props){
+    
     const [room,updateroom] = useState({
         name: "",
         messages: []
@@ -34,7 +37,6 @@ function ListItem(props){
                 });
             }
                 });
-                
     },[props.roomid]);
     return (<Link to={"/"+props.roomid}><div className="list-item">
         <Avatar src={"https://avatars.dicebear.com/api/human/"+props.roomid+".svg"} />

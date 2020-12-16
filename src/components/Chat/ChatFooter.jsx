@@ -38,7 +38,7 @@ function ChatFooter(props){
             return {
                 ...prev,
                 [name]: value,
-                time: new Date().getHours()+":"+new Date().getMinutes()
+                time: new Date().toLocaleTimeString()
                 };
         });
     }

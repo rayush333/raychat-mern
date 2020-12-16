@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React from "react";
 import ChatIcon from '@material-ui/icons/Chat';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
