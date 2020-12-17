@@ -14,7 +14,6 @@ const ec=(props.body.sender_id===user._id)?"message-sent":null;
             let sender="";
             let utterance = "";
             const voices = window.speechSynthesis.getVoices();
-            console.log(voices);
             if(props.body.sender_id === user._id)
             sender="You";
             else

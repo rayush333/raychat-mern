@@ -52,7 +52,9 @@ function ListItem(props){
     }
     let lastmsg = "Start Chatting!";
     let sender = "raychat";
-    if(room.messages.length>0)
+    if(room.messages)
+    {
+    if(room.messages?.length>0)
     {
         sender = room.messages[room.messages.length - 1].sender_name;
         if(room.messages[room.messages.length - 1].message?.length>30)
@@ -60,7 +62,7 @@ function ListItem(props){
         else
         lastmsg = room.messages[room.messages.length - 1].message;
     }
-    
+}
     return (<Link to={"/"+props.roomid}><div className="list-item">
         <Avatar src={"https://avatars.dicebear.com/api/human/"+props.roomid+".svg"} />
         <Fab onClick={handleClick}><MeetingRoomIcon /></Fab>

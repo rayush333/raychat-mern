@@ -25,7 +25,7 @@ function Register(){
             url: "http://localhost:5000/register"
         })
         .then((res)=>{
-            console.log(res);
+            
         });
     }
     return <form onSubmit={handleSubmit}>

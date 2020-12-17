@@ -26,7 +26,6 @@ function ChatFooter(props){
         }
         async function handleSubmit(event){
         event.preventDefault();
-        console.log(msg);
         if(msg.message){
         await axios.post("http://localhost:5000/rooms/"+props.roomid+"/messages",msg);
         updatemsg({

@@ -31,7 +31,6 @@ function Chat(){
           
               const channel = pusher.subscribe('messages');
               channel.bind('updated',function(data){
-                  console.log(roomid);
                 if(data.room_id === roomid)
                 {
                     axios.get("http://localhost:5000/rooms/"+roomid)
