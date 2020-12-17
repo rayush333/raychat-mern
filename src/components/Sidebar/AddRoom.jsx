@@ -9,7 +9,7 @@ function AddRoom(){
         const name=prompt("Enter room name");
         if(name)
         {
-            const res=await Axios.post("http://localhost:5000/rooms",{name: name,user: user._id});
+            const res=await Axios.post("https://protected-escarpment-62596.herokuapp.com/rooms",{name: name,user: user._id});
             dispatch({
                 type: actionTypes.SET_USER,
                 user: res.data

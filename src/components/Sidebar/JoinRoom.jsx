@@ -11,7 +11,7 @@ function JoinRoom(){
         const id=prompt("Enter room id");
         if(id)
         {
-            const res=await Axios.post("http://localhost:5000/joinroom/"+id,{user: user._id});
+            const res=await Axios.post("https://protected-escarpment-62596.herokuapp.com/joinroom/"+id,{user: user._id});
             if(res.data === "No such room")
             {
                 alert(res.data);

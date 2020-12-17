@@ -27,7 +27,7 @@ function ChatFooter(props){
         async function handleSubmit(event){
         event.preventDefault();
         if(msg.message){
-        await axios.post("http://localhost:5000/rooms/"+props.roomid+"/messages",msg);
+        await axios.post("https://protected-escarpment-62596.herokuapp.com/rooms/"+props.roomid+"/messages",msg);
         updatemsg({
             sender_name: user.name,
             sender_id: user._id,

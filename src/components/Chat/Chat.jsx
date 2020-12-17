@@ -17,7 +17,7 @@ function Chat(){
     {
         if(roomid)
         {
-            axios.get("http://localhost:5000/rooms/"+roomid)
+            axios.get("https://protected-escarpment-62596.herokuapp.com/rooms/"+roomid)
             .then((res)=> {
                 updateroom({
                     id: roomid,
@@ -33,7 +33,7 @@ function Chat(){
               channel.bind('updated',function(data){
                 if(data.room_id === roomid)
                 {
-                    axios.get("http://localhost:5000/rooms/"+roomid)
+                    axios.get("https://protected-escarpment-62596.herokuapp.com/rooms/"+roomid)
                     .then((res)=> {
                         
                         updateroom({

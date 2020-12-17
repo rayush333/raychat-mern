@@ -10,7 +10,7 @@ function Login(){
         function handleSubmitGoogle(event){
         // event.preventDefault();
         auth.signInWithPopup(provider).then(async function(res){
-            const result=await axios.post("http://localhost:5000/users",res.user);
+            const result=await axios.post("https://protected-escarpment-62596.herokuapp.com/users",res.user);
             dispatch({
                 type: actionTypes.SET_USER,
                 user: result.data
@@ -24,7 +24,7 @@ function Login(){
         // event.preventDefault();
         auth.signInWithPopup(fb).then(async function(res){
             
-            const result=await axios.post("http://localhost:5000/users",res.user);
+            const result=await axios.post("https://protected-escarpment-62596.herokuapp.com/users",res.user);
             
             dispatch({
                 type: actionTypes.SET_USER,

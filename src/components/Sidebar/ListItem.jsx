@@ -16,7 +16,7 @@ function ListItem(props){
         messages: []
     });
     useEffect(()=>{
-        axios.get("http://localhost:5000/rooms/"+props.roomid)
+        axios.get("https://protected-escarpment-62596.herokuapp.com/rooms/"+props.roomid)
         .then((res)=>{
             updateroom({
                 name: res.data.name,
@@ -31,7 +31,7 @@ function ListItem(props){
           channel.bind('updated',function(data){
             if(data.room_id === props.roomid)
             {
-                axios.get("http://localhost:5000/rooms/"+props.roomid)
+                axios.get("https://protected-escarpment-62596.herokuapp.com/rooms/"+props.roomid)
                 .then((res)=> {
                     
                     updateroom({
@@ -43,7 +43,7 @@ function ListItem(props){
                 });
     },[props.roomid]);
     async function handleClick(){
-        const res = await axios.post("http://localhost:5000/exit/"+props.roomid,{user: user._id});
+        const res = await axios.post("https://protected-escarpment-62596.herokuapp.com/exit/"+props.roomid,{user: user._id});
         dispatch({
             type: actionTypes.SET_USER,
             user: res.data

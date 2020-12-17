@@ -8,7 +8,7 @@ function Message(props){
     const [{user},dispatch] = useStateValue();
 const ec=(props.body.sender_id===user._id)?"message-sent":null;
     async function handleClick(){
-        await axios.patch("http://localhost:5000/rooms/"+props.body.room_id+"/messages",props.body);
+        await axios.patch("https://protected-escarpment-62596.herokuapp.com/rooms/"+props.body.room_id+"/messages",props.body);
     }
             function read(pitch,rate){
             let sender="";
