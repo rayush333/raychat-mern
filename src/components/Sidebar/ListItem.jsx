@@ -1,13 +1,15 @@
 import React,{useEffect, useState} from "react";
 import {Avatar} from "@material-ui/core";
-import {Link} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 import axios from "axios";
 import Pusher from "pusher-js";
 import MeetingRoomIcon from '@material-ui/icons/MeetingRoom';
 import {Fab} from "@material-ui/core";
 import {useStateValue} from "../StateProvider";
 import {actionTypes} from "../reducer";
+
 function ListItem(props){
+    let history = useHistory();
     const [{user},dispatch] = useStateValue();
     const [room,updateroom] = useState({
         name: "",
@@ -40,19 +42,31 @@ function ListItem(props){
             }
                 });
     },[props.roomid]);
-    // async function handleClick(){
-    //     const res = axios.post("http://localhost:5000/exit/"+props.roomid,{user: user._id});
-    //     dispatch({
-    //         type: actionTypes.SET_USER,
-    //         user: res.data
-    //     });
-    // }
+    async function handleClick(){
+        const res = await axios.post("http://localhost:5000/exit/"+props.roomid,{user: user._id});
+        dispatch({
+            type: actionTypes.SET_USER,
+            user: res.data
+        });
+        history.push("/");
+    }
+    let lastmsg = "Start Chatting!";
+    let sender = "raychat";
+    if(room.messages.length>0)
+    {
+        sender = room.messages[room.messages.length - 1].sender_name;
+        if(room.messages[room.messages.length - 1].message?.length>30)
+        lastmsg = room.messages[room.messages.length - 1].message.substring(0,30)+"...";
+        else
+        lastmsg = room.messages[room.messages.length - 1].message;
+    }
+    
     return (<Link to={"/"+props.roomid}><div className="list-item">
         <Avatar src={"https://avatars.dicebear.com/api/human/"+props.roomid+".svg"} />
-        {/* <Fab onClick={handleClick}><MeetingRoomIcon /></Fab> */}
+        <Fab onClick={handleClick}><MeetingRoomIcon /></Fab>
         <div className="chat-info">
             <h2>{room.name}</h2>
-            <p>{room.messages[room.messages.length-1]?.message}</p>
+            <p>{sender} : {lastmsg}</p>
         </div>
     </div>
     </Link>);

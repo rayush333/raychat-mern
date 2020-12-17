@@ -126,7 +126,8 @@
     width: fit-content;
     border-radius: 10px;
     background-color: white;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    max-width: 500px;
 }
 .time{
     margin-left: 10px;
@@ -182,6 +183,7 @@ form .MuiFab-root:hover{
     background-color: white;
     color: orange;
     bottom:-25px;
+    right: -15px;
     height: 25px;
     width: 30px;
 }
@@ -244,10 +246,23 @@ a{
     color: white;
     height: 40px;
     width: 40px;
-    
 }
 .list-item .MuiFab-root:hover{
     color: orange;
     background-color: #fff;
     
+}
+.picker{
+    position: absolute;
+    top:300px;
+}
+.message::selection{
+    background-color: #fff;
+}
+.message-sent::selection{
+    background-color: orange;
+}
+.message-sent .sound{
+    right: 20px;
+    font-size: 4px;
 }

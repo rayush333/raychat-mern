@@ -1,12 +1,12 @@
 import React from "react";
 import {Avatar} from "@material-ui/core";
 import Axios from "axios";
-// import {useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import {useStateValue} from "../StateProvider";
 import { actionTypes } from "../reducer";
 function AddRoom(){
     const [{user}, dispatch] = useStateValue();
-    // let history=useHistory();
+    let history=useHistory();
     async function handleClick(){
         const name=prompt("Enter room name");
         if(name)
@@ -16,6 +16,7 @@ function AddRoom(){
                 type: actionTypes.SET_USER,
                 user: res.data
             });
+            history.push("/");
         }
     }
     return <div onClick={handleClick} className="list-item">
